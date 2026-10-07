@@ -19,6 +19,28 @@ public class Main {
 
             choice = input.nextInt();
             input.nextLine();
+
+            if (choice == 1) {
+                System.out.print("Enter Name: ");
+                String owner = input.nextLine();
+                System.out.print("Starting Balance: ");
+                double initialBalance = input.nextDouble();
+                register.createAccount(owner, initialBalance);
+                System.out.println("Account created successfully!");
+            } else if (choice == 2) {
+                register.printAll();
+            } else if (choice == 3) {
+                System.out.print("Enter Name: ");
+                String owner = input.nextLine();
+                Account found = register.findAccount(owner);
+                if  (found != null) {
+                    System.out.println("Amount to deposit: ");
+                    double amount = input.nextDouble();
+                    input.nextLine();
+                    found.deposit(amount);
+                    System.out.println("New amount: " + found.getBalance());
+                }
+            }
         }
     }
 }
