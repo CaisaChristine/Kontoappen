@@ -39,7 +39,28 @@ public class Main {
                     input.nextLine();
                     found.deposit(amount);
                     System.out.println("New amount: " + found.getBalance());
+                } else {
+                    System.out.println("Account not found: " + owner);
                 }
+            } else if (choice == 4) {
+                System.out.print("Enter Name: ");
+                String owner = input.nextLine();
+                Account found = register.findAccount(owner);
+                if (found != null) {
+                    System.out.println("Amount to withdraw: ");
+                    double amount = input.nextDouble();
+                    input.nextLine();
+                    if (amount <= found.getBalance()) {
+                        found.withdraw(amount);
+                        System.out.println("New amount: " + found.getBalance());
+                    }  else {
+                        System.out.println("Insufficient funds! Available amount: " + found.getBalance());
+                    }
+                } else {
+                    System.out.println("Account not found: " + owner);
+                }
+            } else if (choice == 5) {
+                System.out.println("Bye!");
             }
         }
     }
