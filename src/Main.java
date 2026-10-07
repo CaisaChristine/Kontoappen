@@ -8,13 +8,14 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         int choice = 0;
-        while (choice != 5) {
+        while (choice != 6) {
             System.out.println("Welcome to the Bank");
             System.out.println("1. Create Account");
-            System.out.println("2. List Accounts");
-            System.out.println("3. Make a Deposit");
-            System.out.println("4. Make a Withdrawal");
-            System.out.println("5. Exit");
+            System.out.println("2. Search Account");
+            System.out.println("3. List existing accounts");
+            System.out.println("4. Make a Deposit");
+            System.out.println("5. Make a Withdrawal");
+            System.out.println("6. Exit");
             System.out.print("Choice: ");
 
             choice = input.nextInt();
@@ -28,8 +29,17 @@ public class Main {
                 register.createAccount(owner, initialBalance);
                 System.out.println("Account created successfully!");
             } else if (choice == 2) {
-                register.printAll();
+                System.out.println("Account owner: ");
+                String owner = input.nextLine();
+                Account found = register.findAccount(owner);
+                if (found != null) {
+                    System.out.println("Account balance: " + found.getBalance());
+                } else  {
+                    System.out.println("Account not found: " + owner);
+                }
             } else if (choice == 3) {
+                register.printAll();
+            } else if (choice == 4) {
                 System.out.print("Enter Name: ");
                 String owner = input.nextLine();
                 Account found = register.findAccount(owner);
@@ -42,7 +52,7 @@ public class Main {
                 } else {
                     System.out.println("Account not found: " + owner);
                 }
-            } else if (choice == 4) {
+            } else if (choice == 5) {
                 System.out.print("Enter Name: ");
                 String owner = input.nextLine();
                 Account found = register.findAccount(owner);
@@ -59,8 +69,8 @@ public class Main {
                 } else {
                     System.out.println("Account not found: " + owner);
                 }
-            } else if (choice == 5) {
-                System.out.println("Bye!");
+            } else if (choice == 6) {
+                System.out.println("Good Bye!");
             }
         }
     }

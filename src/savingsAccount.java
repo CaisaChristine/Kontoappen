@@ -1,3 +1,3 @@
-//public class savingAccount extends Account {
+//public class savingsAccount extends Account {
 
 //}
