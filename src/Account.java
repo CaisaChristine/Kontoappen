@@ -22,4 +22,8 @@ public class Account {
     public void withdraw(double amount) {
         balance -= amount;
     }
+
+    public void printInfo() {
+        System.out.println("Account Owner : " + owner + " | Account Balance : " + balance);
+    }
 }

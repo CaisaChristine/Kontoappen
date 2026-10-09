@@ -7,8 +7,7 @@ public class AccountRegister {
 
     public void printAll() {
         for (int i = 0; i < accounts.size(); i++) {
-            Account a =  accounts.get(i);
-            System.out.println("Account " + a.getOwner() + " | Balance: " + a.getBalance());
+            accounts.get(i).printInfo();
         }
     }
 
