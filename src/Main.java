@@ -24,10 +24,16 @@ public class Main {
             if (choice == 1) {
                 System.out.print("Enter Name: ");
                 String owner = input.nextLine();
-                System.out.print("Starting Balance: ");
-                double initialBalance = input.nextDouble();
-                register.createAccount(owner, initialBalance);
-                System.out.println("Account created successfully!");
+                Account found = register.findAccount(owner);
+                if (found == null) {
+                    System.out.print("Starting Balance: ");
+                    double initialBalance = input.nextDouble();
+                    register.createAccount(owner, initialBalance);
+                    System.out.println("Account created successfully!");
+                } else {
+                    System.out.println("Account already exists!");
+                    return;
+                }
             } else if (choice == 2) {
                 System.out.println("Account owner: ");
                 String owner = input.nextLine();
